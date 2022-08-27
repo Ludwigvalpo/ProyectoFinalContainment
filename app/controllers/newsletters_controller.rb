@@ -21,7 +21,7 @@ class NewslettersController < ApplicationController
 
   # POST /newsletters or /newsletters.json
   def create
-    @newsletter = Newsletter.new(newsletter_params)
+    @newsletter = Newsletter.new(newsletter_params.merge(user: current_user))
 
     respond_to do |format|
       if @newsletter.save
@@ -65,6 +65,6 @@ class NewslettersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def newsletter_params
-      params.require(:newsletter).permit(:url, :comment, :active, :user_id)
+      params.require(:newsletter).permit(:url, :comment, :active)
     end
 end
