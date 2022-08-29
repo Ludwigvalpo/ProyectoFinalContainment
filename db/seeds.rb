@@ -11,7 +11,7 @@ Newsletter.destroy_all
 user = User.first
 
 20.times do |i|
-    newsletter = Newsletter.create(user: user, url: "/images/#{i + 01}")
+    newsletter = Newsletter.create(user: user, url: "/images/0#{i + 1}.jpg")
 
     puts "Se ha creado el Boletín: #{newsletter.url}"
 end

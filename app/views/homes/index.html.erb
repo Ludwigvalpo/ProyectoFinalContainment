@@ -1,11 +1,23 @@
+<div class='container'>
 <h1>Containment</h1>
 <H3>No Condenamos, Nos Apoyamos</H3>
-<h3>Tu Privacidad es lo mas importante, tus datos están protegidos</h3>
+<h3>Tu Privacidad es muy importante, tus datos están protegidos</h3>
 <table>
     <tbody>
-    <% if @newsletters %>
-        <td>Boletines:</td>
-        <td><%= @newsletters %></td>
-    <% end %>
+        <% if @newsletters %>
+            <td>Boletines:</td>
+            <td><%= @newsletters.size %></td>
+        <% end %>   
     </tbody>
 </table>
+
+<% if @newsletters %>
+
+<div class="container">
+    <% @newsletters.each do |newsletter| %>
+    <%= render 'newsletters/newsletter', newsletter: newsletter %>
+    <% end %>
+</div>
+
+<% end %>
+</div>
